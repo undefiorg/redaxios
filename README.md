@@ -14,7 +14,7 @@ Yes! Axios is an excellent module and you should use it! Redaxios exists so that
 ### Usage
 
 ```js
-import axios from 'redaxios';
+import axios from '@undefiorg/redaxios';
 // use as you would normally
 ```
 
