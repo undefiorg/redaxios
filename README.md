@@ -19,3 +19,13 @@ import axios from 'redaxios';
 ```
 
 Refer to the [Axios Documentation](https://github.com/axios/axios#axios-api).
+
+- - -
+
+## Why fork?
+- Cloudflare Worker fetch didn't support credential so this error will throw
+  ```
+  The 'credentials' field on 'RequestInitializerDict' is not implemented.
+  ```
+- Issue already [there](https://github.com/developit/redaxios/issues/64) but I can't wait for the fix so here are we.
+- The test is some how broken, prettier is yelling, `npm audit` is a mess (in dev) but I intend to not fix it now (take too much time!) which ean I just can't PR back.
