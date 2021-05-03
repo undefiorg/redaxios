@@ -194,13 +194,15 @@ export default (function create(/** @type {Options} */ defaults) {
 		}
 
 		const fetchFunc = options.fetch || fetch;
-
-		return fetchFunc(url, {
+		const requestInit = {
 			method: _method || options.method,
 			body: data,
-			headers: deepMerge(options.headers, customHeaders, true),
-			credentials: options.withCredentials ? 'include' : 'same-origin'
-		}).then((res) => {
+			headers: deepMerge(options.headers, customHeaders, true)
+		}
+
+		if (options.withCredentials) requestInit['credentials'] = 'include'
+
+		return fetchFunc(url, requestInit).then((res) => {
 			for (const i in res) {
 				if (typeof res[i] != 'function') response[i] = res[i];
 			}

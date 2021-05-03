@@ -310,9 +310,7 @@ describe('redaxios', () => {
 
 		it(`#spread should work`, async () => {
 			const result = await axios.all([Promise.resolve('hello'), Promise.resolve('world')]).then(
-				axios.spread((item1, item2) => {
-					return `${item1} ${item2}`;
-				})
+				axios.spread((item1, item2) => `${item1} ${item2}`)
 			);
 
 			expect(result).toEqual('hello world');
